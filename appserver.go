@@ -16,6 +16,7 @@ import (
 	"io"
 	"io/ioutil"
 	"net/http"
+	"oss_shensuanzi/datastruct"
 	"strconv"
 	"time"
 
@@ -84,7 +85,7 @@ func get_policy_token() string {
 	//calucate signature
 	result, err := json.Marshal(config)
 	debyte := base64.StdEncoding.EncodeToString(result)
-	h := hmac.New(func() hash.Hash { return sha1.New() }, []byte(accessKeySecret))
+	h := hmac.New(func() hash.Hash { return sha1.New() }, []byte(datastruct.AccessKeySecret))
 	io.WriteString(h, debyte)
 	signedStr := base64.StdEncoding.EncodeToString(h.Sum(nil))
 
@@ -100,8 +101,8 @@ func get_policy_token() string {
 	callbackBase64 := base64.StdEncoding.EncodeToString(callback_str)
 
 	var policyToken PolicyToken
-	policyToken.AccessKeyId = accessKeyId
-	policyToken.Host = host
+	policyToken.AccessKeyId = datastruct.AccessKeyId
+	policyToken.Host = datastruct.Host
 	policyToken.Expire = expire_end
 	policyToken.Signature = string(signedStr)
 	policyToken.Directory = upload_dir + UniqueId()
@@ -118,11 +119,11 @@ func main() {
 	CreateIdWorker()
 	var strIPPort string
 	if isDebug {
-		strIPPort = debug_ipAndport
-		callbackUrl = debug_callbackUrl
+		strIPPort = datastruct.Debug_ipAndport
+		callbackUrl = datastruct.Debug_callbackUrl
 	} else {
-		strIPPort = release_ipAndport
-		callbackUrl = release_callbackUrl
+		strIPPort = datastruct.Release_ipAndport
+		callbackUrl = datastruct.Release_callbackUrl
 	}
 
 	fmt.Printf("\ncallbackserver is running on %s \n", strIPPort)
