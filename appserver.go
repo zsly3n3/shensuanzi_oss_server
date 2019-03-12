@@ -147,30 +147,30 @@ func handlerRequest(w http.ResponseWriter, r *http.Request) {
 		switch r.RequestURI {
 		case "/ft/avatar":
 			if isDebug {
-				upload_dir = "/ft_avatar_dev/"
+				upload_dir = "ft_avatar_dev/"
 			} else {
-				upload_dir = "/ft_avatar/"
+				upload_dir = "ft_avatar/"
 			}
 			isError = false
 		case "/user/avatar":
 			if isDebug {
-				upload_dir = "/user_avatar_dev/"
+				upload_dir = "user_avatar_dev/"
 			} else {
-				upload_dir = "/user_avatar/"
+				upload_dir = "user_avatar/"
 			}
 			isError = false
 		case "/ft/idbehindcover":
 			if isDebug {
-				upload_dir = "/ft_id_behindcover_dev/"
+				upload_dir = "ft_id_behindcover_dev/"
 			} else {
-				upload_dir = "/ft_id_behindcover/"
+				upload_dir = "ft_id_behindcover/"
 			}
 			isError = false
 		case "/ft/idfrontcover":
 			if isDebug {
-				upload_dir = "/ft_id_frontcover_dev/"
+				upload_dir = "ft_id_frontcover_dev/"
 			} else {
-				upload_dir = "/ft_id_frontcover/"
+				upload_dir = "ft_id_frontcover/"
 			}
 			isError = false
 		}
