@@ -145,6 +145,13 @@ func handlerRequest(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
 		isError := true
 		switch r.RequestURI {
+		case "/ft/shopimgs":
+			if isDebug {
+				upload_dir = "ft_shopimgs_dev/"
+			} else {
+				upload_dir = "ft_shopimgs/"
+			}
+			isError = false
 		case "/ft/avatar":
 			if isDebug {
 				upload_dir = "ft_avatar_dev/"
