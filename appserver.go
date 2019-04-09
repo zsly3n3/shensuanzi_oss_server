@@ -141,6 +141,7 @@ func handlerRequest(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Access-Control-Allow-Headers", "Webtoken")
 		w.Header().Set("Access-Control-Allow-Headers", "Appversion")
 		w.Header().Set("Access-Control-Allow-Headers", "Apptoken")
+		w.Header().Set("Access-Control-Allow-Headers", "Platform")
 		w.WriteHeader(204)
 		return
 	}
