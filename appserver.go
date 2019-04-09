@@ -138,10 +138,7 @@ func main() {
 func handlerRequest(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "OPTIONS" {
 		w.Header().Set("Access-Control-Allow-Origin", "*")
-		w.Header().Set("Access-Control-Allow-Headers", "Webtoken")
-		w.Header().Set("Access-Control-Allow-Headers", "Appversion")
-		w.Header().Set("Access-Control-Allow-Headers", "Apptoken")
-		w.Header().Set("Access-Control-Allow-Headers", "Platform")
+		w.Header().Set("Access-Control-Allow-Headers", "Webtoken,Appversion,Apptoken,Platform")
 		w.WriteHeader(204)
 		return
 	}
@@ -187,10 +184,7 @@ func handlerRequest(w http.ResponseWriter, r *http.Request) {
 		if !isError {
 			response := get_policy_token()
 			w.Header().Set("Access-Control-Allow-Origin", "*")
-			w.Header().Set("Access-Control-Allow-Headers", "Webtoken")
-			w.Header().Set("Access-Control-Allow-Headers", "Appversion")
-			w.Header().Set("Access-Control-Allow-Headers", "Apptoken")
-			w.Header().Set("Access-Control-Allow-Headers", "Platform")
+			w.Header().Set("Access-Control-Allow-Headers", "Webtoken,Appversion,Apptoken,Platform")
 			io.WriteString(w, response)
 		}
 	}
