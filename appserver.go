@@ -180,6 +180,13 @@ func handlerRequest(w http.ResponseWriter, r *http.Request) {
 				upload_dir = "ft_id_frontcover/"
 			}
 			isError = false
+		case "/ft/shareposter":
+			if isDebug {
+				upload_dir = "ft_shareposter_dev/"
+			} else {
+				upload_dir = "ft_shareposter/"
+			}
+			isError = false
 		}
 		if !isError {
 			response := get_policy_token()
