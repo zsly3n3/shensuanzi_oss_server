@@ -187,7 +187,6 @@ func handlerRequest(w http.ResponseWriter, r *http.Request) {
 				upload_dir = "ft_shareposter/"
 			}
 			isError = false
-		}
                 case "/web/querywithmark":
                         if isDebug {
                                 upload_dir = "web_querywithmark_dev/"
@@ -195,7 +194,7 @@ func handlerRequest(w http.ResponseWriter, r *http.Request) {
                                 upload_dir = "web_querywithmark/"
                         }
                         isError = false
-                }
+                
                }
 		if !isError {
 			response := get_policy_token()
