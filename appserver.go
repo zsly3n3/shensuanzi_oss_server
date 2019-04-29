@@ -187,15 +187,21 @@ func handlerRequest(w http.ResponseWriter, r *http.Request) {
 				upload_dir = "ft_shareposter/"
 			}
 			isError = false
-                case "/web/querywithmark":
-                        if isDebug {
-                                upload_dir = "web_querywithmark_dev/"
-                        } else {
-                                upload_dir = "web_querywithmark/"
-                        }
-                        isError = false
-                
-               }
+		case "/web/querywithmark":
+			if isDebug {
+				upload_dir = "web_querywithmark_dev/"
+			} else {
+				upload_dir = "web_querywithmark/"
+			}
+			isError = false
+		case "/im/imgs":
+			if isDebug {
+				upload_dir = "im_imgs_dev"
+			} else {
+				upload_dir = "im_imgs"
+			}
+			isError = false
+		}
 		if !isError {
 			response := get_policy_token()
 			w.Header().Set("Access-Control-Allow-Origin", "*")
