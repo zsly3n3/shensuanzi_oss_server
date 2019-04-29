@@ -196,9 +196,9 @@ func handlerRequest(w http.ResponseWriter, r *http.Request) {
 			isError = false
 		case "/im/imgs":
 			if isDebug {
-				upload_dir = "im_imgs_dev"
+				upload_dir = "im_imgs_dev/"
 			} else {
-				upload_dir = "im_imgs"
+				upload_dir = "im_imgs/"
 			}
 			isError = false
 		}
