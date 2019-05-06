@@ -201,6 +201,13 @@ func handlerRequest(w http.ResponseWriter, r *http.Request) {
 				upload_dir = "im_imgs/"
 			}
 			isError = false
+		case "/user/payeeimgs":
+			if isDebug {
+				upload_dir = "user_payeeimgs_dev/"
+			} else {
+				upload_dir = "user_payeeimgs/"
+			}
+			isError = false
 		}
 		if !isError {
 			response := get_policy_token()
